@@ -22,7 +22,7 @@ class VideoSource {
     private:
     
         float alpha;
-    
+        
         int counter;
         int pixelSpacing;
     

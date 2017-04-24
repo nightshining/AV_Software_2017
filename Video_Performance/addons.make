@@ -1,2 +1,2 @@
-ofxFFT
+ofxControlUtils
 ofxSyphon

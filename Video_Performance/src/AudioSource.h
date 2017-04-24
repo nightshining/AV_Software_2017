@@ -10,15 +10,23 @@ public:
     void update();
     void draw();
     float getAmplitude();
+    float getAmplitudeSmooth();
     void audioIn(float * input, int bufferSize, int nChannels);
     
 private:
     
     vector <float> volHistory;
-    vector <float> left, right;
-    
-    float smoothedVol;
-    float scaledVol;
+    vector <float> mono;
     float rawVol;
+    float levelVol;
+    float scaledVol;
+    float smoothedVol;
+    
+    int maxHistory;
+    vector<float> scaledHistory;
+    vector<float> smoothHistory;
+    float smoothData(vector<float> inputData);
+
+    
     
 };
