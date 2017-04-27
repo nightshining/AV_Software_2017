@@ -13,6 +13,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+        void exit();
         void audioIn(float * input, int bufferSize, int nChannels);
 
 		void keyPressed(int key);
@@ -34,5 +35,6 @@ class ofApp : public ofBaseApp{
     AudioSource audio;
     
     bool debug;
+    
     
 };

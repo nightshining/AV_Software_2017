@@ -3,17 +3,20 @@
 //--------------------------------------------------------------
 void AudioSource::setup(int bufferSize){
     
-    mono.assign(bufferSize, 0.0);
+    //mono.assign(bufferSize, 0.0);
+    mono.resize(bufferSize);
     volHistory.assign(400, 0.0);
     
     levelVol     = 0.0;
     scaledVol   = 0.0;
     rawVol      = 0.0;
     
-    
-    maxHistory = 25; //higher variable is smoother data
+    maxHistory = 20; //higher variable is smoother data
     smoothHistory.resize(maxHistory);
     scaledHistory.resize(maxHistory);
+    
+    bThresh = false;
+ 
     
 }
 
@@ -73,23 +76,30 @@ float AudioSource::getAmplitudeSmooth(){
     
     return smoothedVol;
 }
+
+bool AudioSource::getAmplitudeThresh(float thresh){
+    
+    bThresh = trigger.stateCheck(scaledVol, thresh);
+
+    return bThresh;
+}
+
+
 //--------------------------------------------------------------
 void AudioSource::audioIn(float * input, int bufferSize, int nChannels){
-    
+
     float curVol = 0.0;
     
     // samples are "interleaved"
     int numCounted = 0;
     
-    for (int i = 0; i < bufferSize; i++){
-        
-        mono[i]		= input[i*2]*0.5;
-        //input2[i]	= input[i*2+1]*0.5;
-        
-        curVol += mono[i] * mono[i];
-        //curVol += input2[i] * input2[i];
-        numCounted+=2;
-    }
+        for (int i = 0; i < bufferSize; i++){
+            mono[i] = input[i*2]*0.5;
+            mono[i] = input[i*2]*0.5;
+            curVol += mono[i] * mono[i];
+            numCounted+=2;
+            
+        }
     
     //this is how we get the mean of rms :)
     curVol /= (float)numCounted;
@@ -172,6 +182,19 @@ void AudioSource::draw(){
     ofDrawBitmapString("Smooth: " + ofToString(smoothedVol), pos.x*offset, pos.y*.23);
     ofPopMatrix();
     ofPopStyle();
+    
+    //Trigger
+    
+    if (bThresh){
+        ofPushStyle();
+        ofPushMatrix();
+        ofSetColor(ofColor::red);
+        ofFill();
+        ofTranslate(pos.x*.3, pos.y*0.15);
+        ofDrawCircle(0,40, 15);
+        ofPopMatrix();
+        ofPopStyle();
+    }
     
 }
 

@@ -6,25 +6,30 @@ void ofApp::setup(){
     ofSetWindowTitle("Electronic Performance Video");
     ofBackground(ofColor::black);
 
+    
+    vid.setup(VIDEO_POS_MIDDLE);
+    
+    int bufferSize = 256;
+    audio.setup(bufferSize);
+    
     // 0 output channels,
     // 2 input channels
     // 44100 samples per second
     // 256 samples per buffer
     // 4 num buffers (latency)
-    
+    //
+    soundStream.setup(this, 2, 0, 44100, bufferSize, 4);
     soundStream.printDeviceList();
     
-    
-    int bufferSize = 256;
-    int deviceID_input = 2;
-    soundStream.setup(this, 0, deviceID_input, 44100, bufferSize, 4);
-    
-    vid.setup(VIDEO_POS_MIDDLE);
-    audio.setup(bufferSize);
-    
+
     debug = false;
     
     mainOutputSyphonServer.setName("Screen Output");
+    
+}
+void ofApp::exit(){
+
+    soundStream.close();
     
 }
 
@@ -37,6 +42,23 @@ void ofApp::update(){
     ofVec2f vec = ofVec2f(audio.getAmplitude(), audio.getAmplitude());
     vid.setFillColor(vec);
     
+
+    if (audio.getAmplitudeThresh(0.6f)) {
+        
+        vid.setBackgroundAlpha(audio.getAmplitude()*1.5f);
+        //vid.setFrame(ofRandomf());
+
+    } else {
+        
+        vid.setBackgroundAlpha(0.0);
+    
+    }
+    
+    
+    vid.setScale(ofGetMouseX() * 0.01, ofGetMouseY() * 0.01);
+    
+
+
 }
 
 //--------------------------------------------------------------
@@ -50,7 +72,7 @@ void ofApp::draw(){
 
     ofEnableAlphaBlending();
 
-    vid.draw(VIDEO_STYLE_PIXELS);
+    vid.draw(VIDEO_STYLE_MESH);
     
     ofDisableAlphaBlending();
     
@@ -92,6 +114,7 @@ void ofApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
 
+    
 }
 
 //--------------------------------------------------------------

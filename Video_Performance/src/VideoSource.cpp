@@ -8,7 +8,8 @@ void VideoSource::setup(position drawPosition){
     
     vid.load("1.mov");
     vid.play();
-    vid.setLoopState(OF_LOOP_PALINDROME);
+    vid.setLoopState(OF_LOOP_NORMAL);
+    
     
     //Image//
     
@@ -47,70 +48,19 @@ void VideoSource::update(){
     img.update();
 
 }
-void VideoSource::draw(style drawStyle){
+void VideoSource::setScale(float scaleX, float scaleY){
     
-        if (drawStyle == VIDEO_STYLE_MESH) {
-         
-            pixelSpacing = 2;
-        }
+    _scale = ofVec2f(scaleX, scaleY);
     
-        if (drawStyle == VIDEO_STYLE_PIXELS) {
-            
-            pixelSpacing = 1;
-        }
-    
-    //unsigned char * pixels = vid.getPixels();
-    ofPixels pixels = vid.getPixels();
-    
-    //int nChannels = vid.getPixelsRef().getNumChannels();
-    int nChannels = vid.getPixels().getNumChannels();
-    
-    for ( int i = 0; i < vid.getWidth(); i+=pixelSpacing ) {
-        
-        for ( int j = 0; j < vid.getHeight(); j+=pixelSpacing ) {
-            
-            unsigned char r = pixels[(j * vid.getWidth() + i) * nChannels    ];
-            unsigned char g = pixels[(j * vid.getWidth() + i) * nChannels + 1];
-            unsigned char b = pixels[(j * vid.getWidth() + i) * nChannels + 2];
-            
-            //if (r == ofWrap(r, 50, ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 255)) && b == ofWrap(b, 150, ofMap(ofGetMouseY(), 0, ofGetHeight(), 0, 255))) {
-            if ( r >= ofMap(fillAmt.x, 0.0, 1.0, 255, 0) && b >= ofMap(fillAmt.y, 0.0, 1.0, 255, 0)) {
-                c.set(r, 100, b);
-                
-            } else {
-                
-                c.set(fillColor);
-            }
-            
-            float radius = 1 - ((float)r / 255.0f);
-            img.setColor(i, j, c);
-        
-            if (drawStyle == VIDEO_STYLE_MESH) {
-                
-                ofPushMatrix();
-                ofTranslate(pos);
-                ofSetColor(c);
-                ofDrawCircle(i, j, ofMap(c.getBrightness(), 0, 255, -100, 100), 1);
-                ofPopMatrix();
-            }
-            
-            
-            
-            }
-        }
-    
-    if (drawStyle == VIDEO_STYLE_PIXELS) {
-        
-        ofPushMatrix();
-        ofTranslate(pos);
-        img.draw(0,0);
-        ofPopMatrix();
-    }
 }
-
 void VideoSource::setFillColor(ofVec2f amt) {
     
     fillAmt = amt;
+}
+
+void VideoSource::setBackgroundAlpha(float alpha){
+    
+    fillColor.a = ofMap(alpha, 0.0, 1.0, 0, 255, true);
 }
 
 //--------------------------------------------------------------
@@ -149,5 +99,85 @@ void VideoSource::setBackgroundColor(int key){
         default:
             break;
     }
-  
+    
 }
+
+void VideoSource::setFrame(float frame){
+    
+    vid.setFrame(frame);
+}
+
+void VideoSource::draw(style drawStyle){
+    
+        if (drawStyle == VIDEO_STYLE_MESH) {
+         
+            pixelSpacing = 5;
+        }
+    
+        if (drawStyle == VIDEO_STYLE_PIXELS) {
+            
+            pixelSpacing = 2;
+        }
+    
+    //unsigned char * pixels = vid.getPixels();
+    ofPixels & pixels = vid.getPixels();
+    
+    //int nChannels = vid.getPixelsRef().getNumChannels();
+    int nChannels = vid.getPixels().getNumChannels();
+    
+    for ( int i = 0; i < vid.getWidth(); i+=pixelSpacing ) {
+        
+        for ( int j = 0; j < vid.getHeight(); j+=pixelSpacing ) {
+            
+            unsigned char r = pixels[(j * vid.getWidth() + i) * nChannels    ];
+            unsigned char g = pixels[(j * vid.getWidth() + i) * nChannels + 1];
+            unsigned char b = pixels[(j * vid.getWidth() + i) * nChannels + 2];
+            
+            //if (r == ofWrap(r, 50, ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 255)) && b == ofWrap(b, 150, ofMap(ofGetMouseY(), 0, ofGetHeight(), 0, 255))) {
+            if ( r >= ofMap(fillAmt.x, 0.0, 1.0, 255, 0) && b >= ofMap(fillAmt.y, 0.0, 1.0, 255, 0)) {
+                c.set(r, 100, b);
+                
+            } else {
+                
+                c.set(fillColor);
+            }
+            
+            float radius = 1 - ((float)r / 255.0f);
+            img.setColor(i, j, c);
+        
+            if (drawStyle == VIDEO_STYLE_MESH) {
+                
+                ofPushMatrix();
+                ofTranslate(pos);
+                ofScale(_scale.x, _scale.y);
+                ofSetColor(c);
+                ofDrawCircle(i, j, ofMap(c.getBrightness(), 0, 255, -50, 50), 1);
+                ofPopMatrix();
+            }
+            
+            
+            
+            }
+        }
+    
+    if (drawStyle == VIDEO_STYLE_PIXELS) {
+        
+        ofPushMatrix();
+        ofTranslate(pos);
+        ofScale(_scale.x, _scale.y);
+        img.draw(0,0);
+        ofPopMatrix();
+    }
+    
+   
+    //FPS
+    ofPushStyle();
+    ofPushMatrix();
+    ofSetColor(ofColor::aquamarine);
+    ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth()*.8, ofGetHeight()*.05);
+    ofPopMatrix();
+    ofPopStyle();
+    
+}
+
+
