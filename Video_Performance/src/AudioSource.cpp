@@ -86,7 +86,7 @@ bool AudioSource::getAmplitudeThresh(float thresh){
 
 
 //--------------------------------------------------------------
-void AudioSource::audioIn(float * input, int bufferSize, int nChannels){
+void AudioSource::audioIn(float * input, int bufferSize, int nChannels, int inputIndex){
 
     float curVol = 0.0;
     
@@ -94,8 +94,8 @@ void AudioSource::audioIn(float * input, int bufferSize, int nChannels){
     int numCounted = 0;
     
         for (int i = 0; i < bufferSize; i++){
-            mono[i] = input[i*2]*0.5;
-            mono[i] = input[i*2]*0.5;
+            //mono[i] = input[i*2]*0.5;
+            mono[i] = input[i*4+inputIndex]*0.5;
             curVol += mono[i] * mono[i];
             numCounted+=2;
             
@@ -117,10 +117,10 @@ void AudioSource::audioIn(float * input, int bufferSize, int nChannels){
 }
 
 //--------------------------------------------------------------
-void AudioSource::draw(){
+void AudioSource::draw(int inputIndex, float _offset){
     
     ofPoint pos = ofPoint(ofGetWidth(), ofGetHeight());
-    float offset = 0.03;
+    float offset = _offset;
     ofSetColor(225);
     ofDrawBitmapString("AUDIO INPUT", pos.x*offset, pos.y*0.05);
     ofDrawBitmapString("press 's' to unpause the audio\n'e' to pause the audio", pos.x*offset, pos.y*0.1);
@@ -131,9 +131,8 @@ void AudioSource::draw(){
     ofPushStyle();
     ofPushMatrix();
     ofTranslate(pos.x*offset, pos.y*0.15);
-    
     ofSetColor(225);
-    ofDrawBitmapString("Input Channel 1", 0, 0);
+    ofDrawBitmapString("Input Channel: " + ofToString(inputIndex), 0, 0);
     //Box around waveform
     ofSetLineWidth(0.2);
     ofDrawRectangle(0,10, mono.size(), pos.y * 0.2);

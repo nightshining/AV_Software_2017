@@ -7,10 +7,27 @@ void ofApp::setup(){
     ofBackground(ofColor::black);
 
     
-    vid.setup(VIDEO_POS_MIDDLE);
     
     int bufferSize = 256;
-    audio.setup(bufferSize);
+    const int totalAudioInputs = 3;
+    
+    for (int i = 0; i < totalAudioInputs; i++) {
+        
+        AudioSource temp = AudioSource();
+        audio.push_back(temp);
+        audio[i].setup(bufferSize);
+        debugPos.push_back(ofMap(i, 0, totalAudioInputs, 0.0f, 1.0f));
+        
+        
+        VideoSource temp2 = VideoSource();
+        vid.push_back(temp2);
+
+    }
+    
+    vid[0].setup(VIDEO_POS_LEFT);
+    vid[1].setup(VIDEO_POS_MIDDLE);
+    vid[2].setup(VIDEO_POS_RIGHT);
+
     
     // 0 output channels,
     // 2 input channels
@@ -18,7 +35,8 @@ void ofApp::setup(){
     // 256 samples per buffer
     // 4 num buffers (latency)
     //
-    soundStream.setup(this, 2, 0, 44100, bufferSize, 4);
+    soundStream.setup(this, 2, 4, 44100, bufferSize, 4);
+    soundStream.setDeviceID(2);
     soundStream.printDeviceList();
     
 
@@ -36,46 +54,68 @@ void ofApp::exit(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    vid.update();
-    audio.update();
+    for (auto & vid : vid) {
+
+        vid.update();
+        
+    }
     
-    ofVec2f vec = ofVec2f(audio.getAmplitude(), audio.getAmplitude());
+    for (auto & audio : audio) {
+        
+        audio.update();
+    }
+
+    int iter = 0;
+    for (auto & vid : vid) {
+
+        
+    ofVec2f vec = ofVec2f(audio[iter].getAmplitude(), audio[iter].getAmplitude());
     vid.setFillColor(vec);
     
-
-    if (audio.getAmplitudeThresh(0.6f)) {
+        if (audio[iter].getAmplitudeThresh(0.6f)) {
         
-        vid.setBackgroundAlpha(audio.getAmplitude()*1.5f);
+        vid.setBackgroundAlpha(audio[iter].getAmplitude()*1.5f);
         //vid.setFrame(ofRandomf());
 
-    } else {
+        } else {
         
         vid.setBackgroundAlpha(0.0);
     
+        }
+    
+        int scaling = 75;
+        vid.setScale(scaling * 0.01,scaling * 0.01);
+        
+        
     }
-    
-    
-    vid.setScale(ofGetMouseX() * 0.01, ofGetMouseY() * 0.01);
-    
-
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
+
+
     if (debug){
         
-        audio.draw();
+        int iter = 0;
+        
+        for (auto & audio : audio) {
+            
+        iter++;
+        
+        audio.draw(iter, debugPos[iter]);
+            
+        }
         
     } else {
 
-    ofEnableAlphaBlending();
+        for (auto & vid : vid) {
 
-    vid.draw(VIDEO_STYLE_MESH);
-    
-    ofDisableAlphaBlending();
-    
+            ofEnableAlphaBlending();
+            vid.draw(VIDEO_STYLE_PIXELS);
+            ofDisableAlphaBlending();
+        }
+        
     }
     
     
@@ -86,13 +126,24 @@ void ofApp::draw(){
 }
 void ofApp::audioIn(float * input, int bufferSize, int nChannels){
  
-    audio.audioIn(input, bufferSize, nChannels);
+    int iter = 0;
+    for (auto & audio : audio) {
+
+        audio.audioIn(input, bufferSize, nChannels,iter);
+        iter++;
+        
+    
+    }
     
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    vid.setBackgroundColor(key);
+    for (auto & vid : vid) {
+
+        vid.setBackgroundColor(key);
+    
+    }
     
     if (key == 'd'){
         

@@ -1,4 +1,4 @@
-#pragma once
+    #pragma once
 
 #include "ofMain.h"
 #include "ofxControlUtils.h"
@@ -9,11 +9,11 @@ public:
     
     void  setup(int bufferSize);
     void  update();
-    void  draw();
+    void  draw(int inputIndex, float _offset);
     float getAmplitude();
     float getAmplitudeSmooth();
     bool  getAmplitudeThresh(float thresh);
-    void  audioIn(float * input, int bufferSize, int nChannels);
+    void  audioIn(float * input, int bufferSize, int nChannels, int inputIndex);
     
 private:
     

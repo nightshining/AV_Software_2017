@@ -31,8 +31,9 @@ class ofApp : public ofBaseApp{
     
     ofxSyphonServer mainOutputSyphonServer;
     ofSoundStream soundStream;
-    VideoSource vid;
-    AudioSource audio;
+    vector<VideoSource> vid;
+    vector<AudioSource> audio;
+    vector<float> debugPos;
     
     bool debug;
     
