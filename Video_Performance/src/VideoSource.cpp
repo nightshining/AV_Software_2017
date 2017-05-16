@@ -6,7 +6,7 @@ void VideoSource::setup(position drawPosition){
     
     //Video//
     
-    vid.load("1.mov");
+    vid.load("Hair.mov");
     vid.play();
     vid.setLoopState(OF_LOOP_NORMAL);
     
@@ -23,20 +23,7 @@ void VideoSource::setup(position drawPosition){
     fillAmt = ofVec2f(0.0,0.0);
     
     
-    
-    switch (drawPosition) {
-        case VIDEO_POS_LEFT:
-            pos = ofPoint(ofGetWidth() * .05, ofGetHeight() * .15);
-            break;
-        case VIDEO_POS_MIDDLE:
-            pos = ofPoint(ofGetWidth() * .2, ofGetHeight() * .15);
-            break;
-        case VIDEO_POS_RIGHT:
-            pos = ofPoint(ofGetWidth() * .75, ofGetHeight() * .15);
-            break;
-        default:
-            break;
-    }
+    setPosition(drawPosition);
 }
 
 //--------------------------------------------------------------
@@ -48,6 +35,24 @@ void VideoSource::update(){
     img.update();
 
 }
+void VideoSource::setPosition(position drawPosition) {
+
+    switch (drawPosition) {
+        case VIDEO_POS_LEFT:
+            pos = ofPoint(ofGetWidth() * .05, ofGetHeight() * .25);
+            break;
+        case VIDEO_POS_MIDDLE:
+            pos = ofPoint(ofGetWidth() * .35, ofGetHeight() * .25);
+            break;
+        case VIDEO_POS_RIGHT:
+            pos = ofPoint(ofGetWidth() * .65, ofGetHeight() * .25);
+            break;
+        default:
+            break;
+    }
+
+}
+
 void VideoSource::setScale(float scaleX, float scaleY){
     
     _scale = ofVec2f(scaleX, scaleY);

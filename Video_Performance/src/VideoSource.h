@@ -24,6 +24,7 @@ class VideoSource {
         void loadVideo();
         void setFrame(float frame);
         void setScale(float scaleX, float scaleY);
+        void setPosition(position drawPosition);
         void setBackgroundColor(int key);
         void setBackgroundAlpha(float alpha);
         void setFillColor(ofVec2f fillAmt);

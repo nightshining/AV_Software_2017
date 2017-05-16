@@ -29,6 +29,7 @@ void ofApp::setup(){
     vid[2].setup(VIDEO_POS_RIGHT);
 
     
+    
     // 0 output channels,
     // 2 input channels
     // 44100 samples per second
@@ -66,11 +67,13 @@ void ofApp::update(){
     }
 
     int iter = 0;
+    
     for (auto & vid : vid) {
 
+        //ofVec2f vec = ofVec2f(audio[iter].getAmplitude(), audio[iter].getAmplitude());
+        ofVec2f vec = ofVec2f(abs(sin(ofGetElapsedTimef())),abs(sin(ofGetElapsedTimef())));
+        vid.setFillColor(vec);
         
-    ofVec2f vec = ofVec2f(audio[iter].getAmplitude(), audio[iter].getAmplitude());
-    vid.setFillColor(vec);
     
         if (audio[iter].getAmplitudeThresh(0.6f)) {
         
@@ -86,7 +89,7 @@ void ofApp::update(){
         int scaling = 75;
         vid.setScale(scaling * 0.01,scaling * 0.01);
         
-        
+        iter++;
     }
 
 }
@@ -112,7 +115,7 @@ void ofApp::draw(){
         for (auto & vid : vid) {
 
             ofEnableAlphaBlending();
-            vid.draw(VIDEO_STYLE_PIXELS);
+            vid.draw(VIDEO_STYLE_MESH);
             ofDisableAlphaBlending();
         }
         
@@ -190,6 +193,11 @@ void ofApp::mouseExited(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
+    
+    vid[0].setup(VIDEO_POS_LEFT);
+    vid[1].setup(VIDEO_POS_MIDDLE);
+    vid[2].setup(VIDEO_POS_RIGHT);
+
 
 }
 
