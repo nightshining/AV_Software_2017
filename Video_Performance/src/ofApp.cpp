@@ -28,7 +28,12 @@ void ofApp::setup(){
     vid[1].setup(VIDEO_POS_MIDDLE);
     vid[2].setup(VIDEO_POS_RIGHT);
 
+    name.push_back("s1");
+    name.push_back("s2");
+    name.push_back("s3");
     
+    seq.setup(name[2]);
+    seq.triggerToggle(true);
     
     // 0 output channels,
     // 2 input channels
@@ -68,7 +73,7 @@ void ofApp::update(){
 
     int iter = 0;
     
-    for (auto & vid : vid) {
+   /* for (auto & vid : vid) {
 
         //ofVec2f vec = ofVec2f(audio[iter].getAmplitude(), audio[iter].getAmplitude());
         ofVec2f vec = ofVec2f(abs(sin(ofGetElapsedTimef())),abs(sin(ofGetElapsedTimef())));
@@ -77,20 +82,22 @@ void ofApp::update(){
     
         if (audio[iter].getAmplitudeThresh(0.6f)) {
         
-        vid.setBackgroundAlpha(audio[iter].getAmplitude()*1.5f);
-        //vid.setFrame(ofRandomf());
+            vid.setBackgroundAlpha(audio[iter].getAmplitude()*1.5f);
 
         } else {
         
-        vid.setBackgroundAlpha(0.0);
+            vid.setBackgroundAlpha(0.0);
     
         }
     
-        int scaling = 75;
-        vid.setScale(scaling * 0.01,scaling * 0.01);
-        
+            int scaling = 150;
+            vid.setScale(scaling * 0.01,scaling * 0.01);
+    
         iter++;
-    }
+    }*/
+    
+    seq.trigger(audio[0].getAmplitudeThresh(0.5f), 500);
+
 
 }
 
@@ -112,12 +119,18 @@ void ofApp::draw(){
         
     } else {
 
-        for (auto & vid : vid) {
+        /*for (auto & vid : vid) {
 
             ofEnableAlphaBlending();
             vid.draw(VIDEO_STYLE_MESH);
             ofDisableAlphaBlending();
-        }
+        }*/
+        
+        
+        
+        float amp = audio[0].getAmplitude();
+        float ampSmooth = audio[0].getAmplitudeSmooth();
+        seq.draw(ampSmooth, amp*255);
         
     }
     
@@ -125,7 +138,6 @@ void ofApp::draw(){
     mainOutputSyphonServer.publishScreen();
     
 
-   
 }
 void ofApp::audioIn(float * input, int bufferSize, int nChannels){
  
@@ -152,6 +164,8 @@ void ofApp::keyPressed(int key){
         
         debug = !debug;
     }
+
+    seq.keyPressed(key);
 
 }
 

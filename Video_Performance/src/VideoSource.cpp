@@ -6,7 +6,7 @@ void VideoSource::setup(position drawPosition){
     
     //Video//
     
-    vid.load("Hair.mov");
+    vid.load("2.mov");
     vid.play();
     vid.setLoopState(OF_LOOP_NORMAL);
     
@@ -138,7 +138,7 @@ void VideoSource::draw(style drawStyle){
             unsigned char g = pixels[(j * vid.getWidth() + i) * nChannels + 1];
             unsigned char b = pixels[(j * vid.getWidth() + i) * nChannels + 2];
             
-            //if (r == ofWrap(r, 50, ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 255)) && b == ofWrap(b, 150, ofMap(ofGetMouseY(), 0, ofGetHeight(), 0, 255))) {
+            
             if ( r >= ofMap(fillAmt.x, 0.0, 1.0, 255, 0) && b >= ofMap(fillAmt.y, 0.0, 1.0, 255, 0)) {
                 c.set(r, 100, b);
                 

@@ -3,7 +3,9 @@
 #include "ofMain.h"
 #include "VideoSource.h"
 #include "AudioSource.h"
+#include "SequenceSource.h"
 #include "ofxSyphon.h"
+
 
 
 
@@ -33,8 +35,11 @@ class ofApp : public ofBaseApp{
     ofSoundStream soundStream;
     vector<VideoSource> vid;
     vector<AudioSource> audio;
-    vector<float> debugPos;
     
+    SequenceSource seq;
+    vector<string> name;
+    
+    vector<float> debugPos;
     bool debug;
     
     

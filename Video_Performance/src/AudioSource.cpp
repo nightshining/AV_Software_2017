@@ -11,7 +11,7 @@ void AudioSource::setup(int bufferSize){
     scaledVol   = 0.0;
     rawVol      = 0.0;
     
-    maxHistory = 20; //higher variable is smoother data
+    maxHistory = 10; //higher variable is smoother data
     smoothHistory.resize(maxHistory);
     scaledHistory.resize(maxHistory);
     
