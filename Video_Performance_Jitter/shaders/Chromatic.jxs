@@ -1,0 +1,61 @@
+
+<jittershader name="chromatic">
+	<param name="amp" type="float" default="0." />
+	<language name="glsl" version="1.0">
+		<bind param="amp" program="chromatic" />
+		<program name="basic" type="vertex" source="sh.passthrudim.vp.glsl" />
+		<program name="chromatic" type="fragment">
+<![CDATA[
+
+// vertex to fragment shader io
+varying vec2 texcoord0;
+varying vec2 texdim0;
+
+// globals
+uniform float amp;
+
+// samplers
+uniform sampler2DRect tex0;
+
+// entry point
+void main()
+{
+
+// distance from center of image, used to adjust blur
+	//vec2 uv = texcoord0.xy / texdim0.xy;
+	vec2 uv = texcoord0.xy;
+	float b_d = length(uv-texdim0.xy*.5);
+	
+	
+	// blur amount
+	float blur = 0.0;	
+	blur = (1.0 + sin(amp*6.0)) * 0.5;
+	blur *= 1.0 + sin(amp*16.0) * 0.5;
+	blur = pow(blur, 3.0);
+	blur *= 0.05;
+	// reduce blur towards center
+	blur *= b_d;
+	blur *= 50.;
+	
+	// final color
+    vec3 col;
+    col.r = texture2DRect( tex0, vec2(uv.x+blur,uv.y) ).r;
+    col.g = texture2DRect( tex0, uv ).g;
+    col.b = texture2DRect( tex0, vec2(uv.x-blur,uv.y) ).b;
+	
+	// scanline
+	float scanline = sin(uv.y*800.0)*0.0;
+	col -= scanline;
+	
+	// vignette
+	vec2 vignette_uv = texcoord0.xy / texdim0.xy;
+	float d = length(vignette_uv - vec2(0.5,0.5));
+	col *= 1.0 - d * 0.5;
+	
+    gl_FragColor = vec4(col,1.0);
+}
+]]>	
+		</program>
+	</language>
+</jittershader>
+
