@@ -6,3 +6,4 @@ GIF -> PNG SEQUENCE
 ![screenshot](https://github.com/nightshining/AV_Software_2017/blob/master/TV.gif)
 ![test](https://github.com/nightshining/AV_Software_2017/blob/master/Wiring_Video_Performance.png)
 
+![Shader to Max](https://forum.libcinder.org/topic/adapting-pass-through-shader-toy-shader-to-cinder)
