@@ -1,50 +1,25 @@
-<jittershader name="Chromatic">
-	<param name="time" type="float" default="0." />
-	
-<language name="glsl" version="1.0">
-
-<bind param="time" program="fp" />
 
 
-<program name="vp" type="vertex">
+<jittershader name="dist">
+  <param name="time" type="float" default="0." />
+  <language name="glsl" version="1.0">
+    <bind param="time" program="dist" />
+    <program name="basic" type="vertex" source="sh.passthrudim.vp.glsl" />
+    <program name="dist" type="fragment">
+
 <![CDATA[
-varying vec2 texcoord0;
-varying vec2 texcoord1;
-varying vec2 texdim0;
-varying vec2 texdim1;
-varying vec2 texorient0;
-varying vec2 texorient1;
 
-
-void main()
-{
-    // perform standard transform on vertex
-    gl_Position = ftransform();
-
-    // transform texcoords
-    texcoord0 = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);
-    texcoord1 = vec2(gl_TextureMatrix[1] * gl_MultiTexCoord1);
-    // extract the x and y scalars from the texture matrix to determine dimensions
-    texdim0 = vec2 (abs(gl_TextureMatrix[0][0][0]),abs(gl_TextureMatrix[0][1][1]));
-    texdim1 = vec2 (abs(gl_TextureMatrix[1][0][0]),abs(gl_TextureMatrix[1][1][1]));
-    // extract the sign for orientation
-    texorient0 = vec2 (gl_TextureMatrix[0][0][0]/texdim0.x,gl_TextureMatrix[0][1][1]/texdim0.y);
-    texorient1 = vec2 (gl_TextureMatrix[1][0][0]/texdim1.x,gl_TextureMatrix[1][1][1]/texdim1.y);
-} 
-]]>
-</program>
-<program name="fp" type="fragment">
-<![CDATA[
 
 ////MAIN VARS/////
 uniform float time;
 varying vec2 texcoord0; // provided by passthru
 varying vec2 texdim0; // provided by passthru
 
-//added later//
 
 uniform sampler2DRect tex0;
 uniform sampler2DRect tex1;
+
+
 
 ////////////
 
@@ -52,7 +27,7 @@ uniform sampler2DRect tex1;
   float vertJerkOpt = 1.0;
   float vertMovementOpt = 1.0;
   float bottomStaticOpt = 1.0;
-  float scalinesOpt = 1.0;
+  float scalinesOpt = 0.0;
   float rgbOffsetOpt = 1.0;
   float horzFuzzOpt = 1.0;
 
@@ -130,7 +105,8 @@ float staticV(vec2 uv) {
 void main(void)
 
 {
-vec2 uv =  texcoord0.xy/texdim0.xy;
+  //vec2 uv = texcoord0.xy;
+  vec2 uv = texcoord0.xy / texdim0.xy;
 
 	
 	float jerkOffset = (1.0-step(snoise(vec2(time*1.3,5.0)),0.8))*0.05;
@@ -157,18 +133,18 @@ vec2 uv =  texcoord0.xy/texdim0.xy;
         
     staticVal *= bottomStaticOpt;
 	
-	float red 	=   texture2DRect(	tex0, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y)).r+staticVal;
-	float green = 	texture2DRect(	tex0, 	vec2(uv.x + xOffset,	  y)).g+staticVal;
-	float blue 	=	texture2DRect(	tex0, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y)).b+staticVal;
+	float red 	=   texture2DRect(	tex0, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y) * texdim0.xy).r+staticVal;
+	float green = 	texture2DRect(	tex0, 	vec2(uv.x + xOffset,	  y) * texdim0.xy).g+staticVal;
+	float blue 	=	  texture2DRect(	tex0, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y) * texdim0.xy).b+staticVal;
 	
 	vec3 color = vec3(red,green,blue);
-	float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
+  float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
 	color -= scanline;
-	
+
 	gl_FragColor = vec4(color,1.0);
 }
 
 ]]>
-</program>
-</language>
+        </program>
+    </language>
 </jittershader>
