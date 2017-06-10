@@ -1,9 +1,15 @@
 
 
 <jittershader name="dist">
+  <param name="xNoise" type="float" default="0." />
+  <param name="yNoise" type="float" default="0." />
+  <param name="rgb" type="float" default="0." />
   <param name="time" type="float" default="0." />
   <language name="glsl" version="1.0">
+    <bind param="xNoise" program="dist" />
+    <bind param="yNoise" program="dist" />
     <bind param="time" program="dist" />
+    <bind param="rgb" program="dist" />
     <program name="basic" type="vertex" source="sh.passthrudim.vp.glsl" />
     <program name="dist" type="fragment">
 
@@ -11,6 +17,9 @@
 
 
 ////MAIN VARS/////
+uniform float xNoise;
+uniform float yNoise;
+uniform float rgb;
 uniform float time;
 varying vec2 texcoord0; // provided by passthru
 varying vec2 texdim0; // provided by passthru
@@ -20,15 +29,14 @@ uniform sampler2DRect tex0;
 uniform sampler2DRect tex1;
 
 
-
 ////////////
 
 // change these values to 0.0 to turn off individual effects
   float vertJerkOpt = 1.0;
   float vertMovementOpt = 1.0;
   float bottomStaticOpt = 1.0;
-  float scalinesOpt = 0.0;
-  float rgbOffsetOpt = 1.0;
+  float scalinesOpt = 1.0;
+  //float rgbOffsetOpt = 1.0;
   float horzFuzzOpt = 1.0;
 
 vec3 mod289(vec3 x) {
@@ -111,8 +119,10 @@ void main(void)
 	
 	float jerkOffset = (1.0-step(snoise(vec2(time*1.3,5.0)),0.8))*0.05;
 	
-	float fuzzOffset = snoise(vec2(time*15.0,uv.y*80.0))*0.003;
-	float largeFuzzOffset = snoise(vec2(time*1.0,uv.y*25.0))*0.004;
+	//float fuzzOffset = snoise(vec2(time*15.0,uv.y*80.0))*0.003;
+float fuzzOffset = snoise(vec2(time*15.0,uv.y*80.0))*xNoise;
+	//float largeFuzzOffset = snoise(vec2(time*1.0,uv.y*25.0))*0.004;
+float largeFuzzOffset = snoise(vec2(time*1.0,uv.y*25.0))*yNoise;
     
     float vertMovementOn = (1.0-step(snoise(vec2(time*0.2,8.0)),0.4))*vertMovementOpt;
     float vertJerk = (1.0-step(snoise(vec2(time*1.5,5.0)),0.6))*vertJerkOpt;
@@ -133,12 +143,18 @@ void main(void)
         
     staticVal *= bottomStaticOpt;
 	
-	float red 	=   texture2DRect(	tex0, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y) * texdim0.xy).r+staticVal;
-	float green = 	texture2DRect(	tex0, 	vec2(uv.x + xOffset,	  y) * texdim0.xy).g+staticVal;
-	float blue 	=	  texture2DRect(	tex0, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y) * texdim0.xy).b+staticVal;
+	//float red 	=   texture2DRect(	tex0, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y) * texdim0.xy).r+staticVal;
+	//float green = 	texture2DRect(	tex0, 	vec2(uv.x + xOffset,	  y) * texdim0.xy).g+staticVal;
+	//float blue 	=	  texture2DRect(	tex0, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y) * texdim0.xy).b+staticVal;
 	
+
+  float red   =   texture2DRect(  tex0,   vec2(uv.x + xOffset - 0.01 * rgb, y) * texdim0.xy).r;
+  float green =   texture2DRect(  tex0,   vec2(uv.x + xOffset,    y) * texdim0.xy).g;
+  float blue  =   texture2DRect(  tex0,   vec2(uv.x + xOffset + 0.01 * rgb, y) * texdim0.xy).b;
+
 	vec3 color = vec3(red,green,blue);
-  float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
+  //float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
+  float scanline = 0.;
 	color -= scanline;
 
 	gl_FragColor = vec4(color,1.0);
