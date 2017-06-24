@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 25.0, 96.0, 640.0, 454.0 ],
+		"rect" : [ 640.0, 193.0, 640.0, 454.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -29,7 +29,58 @@
 		"tags" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"activedialcolor" : [ 0.984314, 0.0, 0.168627, 1.0 ],
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"frgb" : 0.0,
+					"id" : "obj-6",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 10.5, 78.5, 75.0, 18.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 2.5, 71.5, 74.0, 18.0 ],
+					"text" : "Wobble",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 8.0,
+					"frgb" : 0.0,
+					"id" : "obj-5",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 213.0, 399.0, 59.0, 15.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 10.5, 56.5, 58.0, 15.0 ],
+					"text" : "Output 0.-1.",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 8.0,
+					"frgb" : 0.0,
+					"id" : "obj-4",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 448.0, 248.0, 73.0, 15.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ -4.0, 0.5, 87.0, 15.0 ],
+					"text" : "Bang Random",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"activedialcolor" : [ 0.047059, 0.94902, 0.0, 1.0 ],
 					"annotation" : "Speed",
 					"fontsize" : 8.0,
 					"hint" : "Speed ",
@@ -42,7 +93,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 140.0, 42.0, 44.0, 42.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 43.0, 3.0, 44.0, 42.0 ],
+					"presentation_rect" : [ 35.0, 14.5, 44.0, 42.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "Speed",
@@ -76,7 +127,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 247.0, 169.5, 44.0, 42.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ -1.0, 3.0, 44.0, 42.0 ],
+					"presentation_rect" : [ -3.0, 14.5, 44.0, 42.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "Amt",
@@ -189,24 +240,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 247.0, 124.0, 25.0, 25.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 8.0,
-					"frgb" : 0.0,
-					"id" : "obj-34",
-					"linecount" : 2,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 326.0, 411.0, 79.0, 24.0 ],
-					"presentation" : 1,
-					"presentation_linecount" : 2,
-					"presentation_rect" : [ 8.0, 45.0, 79.0, 24.0 ],
-					"text" : "Bass / Pad / Noise  Wobble\n"
 				}
 
 			}

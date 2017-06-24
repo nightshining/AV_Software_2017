@@ -29,6 +29,57 @@
 		"tags" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"frgb" : 0.0,
+					"id" : "obj-9",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ -4.5, 85.5, 75.0, 18.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ -4.5, 68.5, 51.5, 18.0 ],
+					"text" : "Flash",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 8.0,
+					"frgb" : 0.0,
+					"id" : "obj-5",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 511.0, 292.0, 59.0, 15.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ -4.5, 53.5, 58.0, 15.0 ],
+					"text" : "Output 0.-1.",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 8.0,
+					"frgb" : 0.0,
+					"id" : "obj-3",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 489.0, 142.0, 59.0, 15.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ -4.5, -1.5, 59.0, 15.0 ],
+					"text" : "Toggle 0-1",
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"activedialcolor" : [ 0.984314, 0.0, 0.168627, 1.0 ],
 					"annotation" : "Millis",
 					"fontsize" : 8.0,
@@ -47,8 +98,8 @@
 						"valueof" : 						{
 							"parameter_longname" : "Millis",
 							"parameter_shortname" : "Millis",
-							"parameter_type" : 1,
-							"parameter_mmax" : 250.0,
+							"parameter_type" : 0,
+							"parameter_mmax" : 500.0,
 							"parameter_unitstyle" : 0,
 							"parameter_annotation_name" : "Millis"
 						}
@@ -111,23 +162,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 240.0, 387.0, 25.0, 25.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 8.0,
-					"frgb" : 0.0,
-					"id" : "obj-37",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 983.0, 187.0, 95.0, 15.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 5.0, -1.5, 38.0, 15.0 ],
-					"text" : "Flash",
-					"textjustification" : 1
 				}
 
 			}
