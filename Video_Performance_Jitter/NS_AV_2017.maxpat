@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 7.0, 71.0, 915.0, 471.0 ],
+		"rect" : [ 36.0, 45.0, 1023.0, 577.0 ],
 		"bgcolor" : [ 0.453356, 0.453356, 0.453356, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
@@ -37,36 +37,25 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 693.0, 177.0, 50.0, 18.0 ],
+					"patching_rect" : [ 750.0, 581.0, 50.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 565.25, 239.0, 50.0, 18.0 ],
+					"presentation_rect" : [ 446.75, 410.25, 50.0, 18.0 ],
 					"text" : "VIDEO 2"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-17",
-					"maxclass" : "bpatcher",
-					"name" : "Controls.maxpat",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 675.0, 205.0, 245.0, 102.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"border" : 1,
 					"id" : "obj-12",
 					"maxclass" : "bpatcher",
 					"name" : "Controls.maxpat",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 352.0, 205.0, 245.0, 102.0 ],
+					"patching_rect" : [ 328.083252, 204.0, 245.0, 102.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 10.0, 137.0, 245.0, 102.0 ]
+					"presentation_rect" : [ 10.0, 146.0, 245.0, 102.0 ]
 				}
 
 			}
@@ -81,7 +70,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 5.0, 339.0, 50.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 250.0, 239.0, 50.0, 18.0 ],
+					"presentation_rect" : [ 107.5, 410.25, 50.0, 18.0 ],
 					"text" : "VIDEO 1"
 				}
 
@@ -253,18 +242,22 @@
 			}
 , 			{
 				"box" : 				{
+					"border" : 1,
 					"id" : "obj-15",
 					"maxclass" : "bpatcher",
 					"name" : "Audio_Input_Trigger.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "int" ],
-					"patching_rect" : [ 626.75, 30.0, 246.0, 107.75 ]
+					"patching_rect" : [ 626.75, 30.0, 246.0, 107.75 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 327.75, 21.5, 246.0, 107.75 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"border" : 1,
 					"id" : "obj-13",
 					"maxclass" : "bpatcher",
 					"name" : "Audio_Input_Trigger.maxpat",
@@ -273,7 +266,7 @@
 					"outlettype" : [ "", "int" ],
 					"patching_rect" : [ 324.083252, 30.0, 249.0, 107.75 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 10.0, 21.5, 249.0, 107.0 ]
+					"presentation_rect" : [ 10.0, 21.5, 245.0, 107.0 ]
 				}
 
 			}
@@ -286,7 +279,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 626.75, 416.0, 212.0, 132.0 ],
+					"patching_rect" : [ 626.75, 425.0, 292.0, 146.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 328.25, 259.25, 287.0, 153.5 ]
 				}
@@ -317,7 +310,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 967.5, 492.0, 81.0, 91.0 ],
+					"patching_rect" : [ 1037.5, 581.0, 81.0, 91.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 660.166687, 245.25, 81.75, 87.0 ]
 				}
@@ -370,7 +363,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 324.083252, 425.0, 212.0, 132.0 ],
+					"patching_rect" : [ 324.083252, 425.0, 291.0, 146.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 10.0, 259.25, 290.0, 151.0 ]
 				}
@@ -931,13 +924,28 @@
 				}
 
 			}
+, 			{
+				"box" : 				{
+					"border" : 1,
+					"id" : "obj-17",
+					"maxclass" : "bpatcher",
+					"name" : "Controls.maxpat",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 627.75, 204.0, 245.0, 102.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 327.75, 146.0, 245.0, 102.0 ]
+				}
+
+			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-39", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 526.583252, 578.25, 333.583252, 578.25 ],
+					"midpoints" : [ 605.583252, 578.25, 333.583252, 578.25 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -956,7 +964,7 @@
 					"destination" : [ "obj-42", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 829.25, 598.25, 636.25, 598.25 ],
+					"midpoints" : [ 909.25, 598.25, 636.25, 598.25 ],
 					"source" : [ "obj-11", 1 ]
 				}
 
@@ -975,7 +983,7 @@
 					"destination" : [ "obj-1", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 361.5, 365.5, 526.583252, 365.5 ],
+					"midpoints" : [ 337.583252, 365.5, 605.583252, 365.5 ],
 					"source" : [ "obj-12", 0 ]
 				}
 
@@ -1048,6 +1056,7 @@
 					"destination" : [ "obj-11", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"midpoints" : [ 637.25, 373.0, 909.25, 373.0 ],
 					"source" : [ "obj-17", 0 ]
 				}
 
@@ -1492,41 +1501,48 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-15::obj-51" : [ "THRESHOLD MAX[3]", "THRESH MAX", 0 ],
-			"obj-13::obj-26" : [ "Input", "Input", 0 ],
-			"obj-17::obj-14" : [ "Speed 0-127", "Speed", 0 ],
-			"obj-15::obj-58" : [ "Mode[1]", "Mode", 0 ],
-			"obj-13::obj-79" : [ "THRESHOLD MIN", "THRESH MIN", 0 ],
-			"obj-13::obj-16" : [ "THRESHOLD MIN[1]", "THRESH MIN", 0 ],
-			"obj-15::obj-29" : [ "PEAKS[1]", "PEAKS", 1 ],
-			"obj-17::obj-6" : [ "Millis", "Millis", 0 ],
-			"obj-4::obj-3" : [ "Speed", "Speed", 0 ],
 			"obj-13::obj-58" : [ "Mode", "Mode", 0 ],
-			"obj-12::obj-6" : [ "Millis[1]", "Millis", 0 ],
-			"obj-13::obj-78" : [ "OEAK MAX", "PEAK MAX", 0 ],
-			"obj-17::obj-10" : [ "Amount", "Amount", 0 ],
-			"obj-15::obj-1" : [ "Time[1]", "Time", 0 ],
-			"obj-13::obj-1" : [ "Time", "Time", 0 ],
-			"obj-15::obj-53" : [ "THRESHOLD MAX[2]", "THRESH MAX", 0 ],
-			"obj-12::obj-14" : [ "Speed 0-127[1]", "Speed", 0 ],
-			"obj-15::obj-81" : [ "INPUT[1]", "INPUT", 0 ],
 			"obj-13::obj-77" : [ "PEAK MIN", "PEAK MIN", 0 ],
-			"obj-15::obj-16" : [ "THRESHOLD MIN[2]", "THRESH MIN", 0 ],
-			"obj-13::obj-102" : [ "PEAK", "PEAK", 0 ],
-			"obj-12::obj-10" : [ "Amount[1]", "Amount", 0 ],
-			"obj-15::obj-77" : [ "PEAK MIN[1]", "PEAK MIN", 0 ],
-			"obj-4::obj-9" : [ "Amt", "Amt", 0 ],
-			"obj-15::obj-79" : [ "THRESHOLD MIN[3]", "THRESH MIN", 0 ],
-			"obj-15::obj-26" : [ "Input[1]", "Input", 0 ],
-			"obj-13::obj-29" : [ "PEAKS", "PEAKS", 1 ],
 			"obj-15::obj-78" : [ "OEAK MAX[1]", "PEAK MAX", 0 ],
+			"obj-13::obj-81" : [ "INPUT", "INPUT", 0 ],
+			"obj-15::obj-58" : [ "Mode[1]", "Mode", 0 ],
+			"obj-12::obj-14" : [ "Speed 0-127", "Speed", 0 ],
+			"obj-4::obj-9" : [ "Amt", "Amt", 0 ],
+			"obj-13::obj-102" : [ "PEAK", "PEAK", 0 ],
+			"obj-15::obj-51" : [ "THRESHOLD MAX[3]", "THRESH MAX", 0 ],
+			"obj-12::obj-10" : [ "Amount", "Amount", 0 ],
+			"obj-13::obj-79" : [ "THRESHOLD MIN", "THRESH MIN", 0 ],
+			"obj-4::obj-3" : [ "Speed", "Speed", 0 ],
+			"obj-17::obj-10" : [ "Amount[1]", "Amount", 0 ],
+			"obj-15::obj-77" : [ "PEAK MIN[1]", "PEAK MIN", 0 ],
 			"obj-13::obj-51" : [ "THRESHOLD MAX[1]", "THRESH MAX", 0 ],
 			"obj-13::obj-53" : [ "THRESHOLD MAX", "THRESH MAX", 0 ],
-			"obj-13::obj-81" : [ "INPUT", "INPUT", 0 ],
-			"obj-15::obj-102" : [ "PEAK[1]", "PEAK", 0 ]
+			"obj-15::obj-79" : [ "THRESHOLD MIN[3]", "THRESH MIN", 0 ],
+			"obj-15::obj-102" : [ "PEAK[1]", "PEAK", 0 ],
+			"obj-15::obj-81" : [ "INPUT[1]", "INPUT", 0 ],
+			"obj-17::obj-6" : [ "Millis[1]", "Millis", 0 ],
+			"obj-13::obj-1" : [ "Time", "Time", 0 ],
+			"obj-15::obj-1" : [ "Time[1]", "Time", 0 ],
+			"obj-13::obj-26" : [ "Input", "Input", 0 ],
+			"obj-13::obj-29" : [ "PEAKS", "PEAKS", 1 ],
+			"obj-15::obj-29" : [ "PEAKS[1]", "PEAKS", 1 ],
+			"obj-15::obj-16" : [ "THRESHOLD MIN[2]", "THRESH MIN", 0 ],
+			"obj-17::obj-14" : [ "Speed 0-127[1]", "Speed", 0 ],
+			"obj-12::obj-6" : [ "Millis", "Millis", 0 ],
+			"obj-13::obj-78" : [ "OEAK MAX", "PEAK MAX", 0 ],
+			"obj-13::obj-16" : [ "THRESHOLD MIN[1]", "THRESH MIN", 0 ],
+			"obj-15::obj-26" : [ "Input[1]", "Input", 0 ],
+			"obj-15::obj-53" : [ "THRESHOLD MAX[2]", "THRESH MAX", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "Controls.maxpat",
+				"bootpath" : "/Users/FakeMike/Desktop/AV_Software_2017_Max_Local",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "Video.maxpat",
 				"bootpath" : "/Users/FakeMike/Desktop/AV_Software_2017_Max_Local",
 				"patcherrelativepath" : ".",
@@ -1542,13 +1558,6 @@
 			}
 , 			{
 				"name" : "Audio_Input_Trigger.maxpat",
-				"bootpath" : "/Users/FakeMike/Desktop/AV_Software_2017_Max_Local",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "Controls.maxpat",
 				"bootpath" : "/Users/FakeMike/Desktop/AV_Software_2017_Max_Local",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
