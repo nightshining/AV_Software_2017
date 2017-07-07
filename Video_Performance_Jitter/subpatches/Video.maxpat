@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 198.0, 45.0, 697.0, 553.0 ],
+		"rect" : [ 62.0, 45.0, 897.0, 705.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -106,9 +106,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 953.166687, 124.0, 45.0, 18.0 ],
+					"patching_rect" : [ 952.833374, 111.5, 45.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 232.0, 66.5, 45.0, 18.0 ],
+					"presentation_rect" : [ 232.0, 24.5, 45.0, 18.0 ],
 					"textcolor" : [ 0.984314, 0.0, 0.168627, 1.0 ],
 					"varname" : "flonum"
 				}
@@ -391,7 +391,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 966.166687, 233.0, 49.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 183.0, 66.5, 49.0, 18.0 ],
+					"presentation_rect" : [ 183.0, 24.5, 49.0, 18.0 ],
 					"text" : "Alpha"
 				}
 
@@ -407,7 +407,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 868.666687, 239.0, 49.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 183.0, 40.5, 49.0, 18.0 ],
+					"presentation_rect" : [ 183.0, 79.0, 49.0, 18.0 ],
 					"text" : "Scale"
 				}
 
@@ -423,7 +423,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 836.666687, 89.0, 49.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 183.0, 14.0, 49.0, 18.0 ],
+					"presentation_rect" : [ 183.0, 51.25, 49.0, 18.0 ],
 					"text" : "Position"
 				}
 
@@ -726,7 +726,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 121.0, 550.5, 25.0, 25.0 ]
+					"patching_rect" : [ 121.0, 568.0, 25.0, 25.0 ]
 				}
 
 			}
@@ -763,7 +763,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 878.166687, 169.5, 45.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 232.0, 40.5, 45.0, 18.0 ],
+					"presentation_rect" : [ 232.0, 79.0, 45.0, 18.0 ],
 					"textcolor" : [ 0.984314, 0.0, 0.168627, 1.0 ],
 					"varname" : "flonum[1]"
 				}
@@ -787,7 +787,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 836.666687, 111.5, 45.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 232.0, 14.0, 45.0, 18.0 ],
+					"presentation_rect" : [ 232.0, 51.25, 45.0, 18.0 ],
 					"textcolor" : [ 0.984314, 0.0, 0.168627, 1.0 ],
 					"varname" : "flonum[2]"
 				}
@@ -803,7 +803,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 953.166687, 89.0, 25.0, 25.0 ]
+					"patching_rect" : [ 952.833374, 65.5, 25.0, 25.0 ]
 				}
 
 			}
@@ -953,6 +953,7 @@
 					"destination" : [ "obj-48", 3 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"midpoints" : [ 962.333374, 164.75, 1005.666687, 164.75 ],
 					"source" : [ "obj-11", 0 ]
 				}
 
@@ -962,6 +963,7 @@
 					"destination" : [ "obj-48", 2 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"midpoints" : [ 962.333374, 164.75, 984.0, 164.75 ],
 					"source" : [ "obj-11", 0 ]
 				}
 

@@ -248,7 +248,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 163.5, 41.0, 47.0, 24.0 ],
-					"restore" : [ 0.0 ],
+					"restore" : [ 0.007874 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -677,9 +677,9 @@
 						"valueof" : 						{
 							"parameter_longname" : "Speed[3]",
 							"parameter_shortname" : "Speed",
-							"parameter_type" : 1,
-							"parameter_mmax" : 30.0,
-							"parameter_unitstyle" : 0
+							"parameter_type" : 0,
+							"parameter_mmax" : 10.0,
+							"parameter_unitstyle" : 1
 						}
 
 					}
@@ -991,9 +991,9 @@
 						"valueof" : 						{
 							"parameter_longname" : "Speed[2]",
 							"parameter_shortname" : "Speed",
-							"parameter_type" : 1,
-							"parameter_mmax" : 30.0,
-							"parameter_unitstyle" : 0
+							"parameter_type" : 0,
+							"parameter_mmax" : 10.0,
+							"parameter_unitstyle" : 1
 						}
 
 					}
@@ -1305,9 +1305,9 @@
 						"valueof" : 						{
 							"parameter_longname" : "Speed[1]",
 							"parameter_shortname" : "Speed",
-							"parameter_type" : 1,
-							"parameter_mmax" : 30.0,
-							"parameter_unitstyle" : 0
+							"parameter_type" : 0,
+							"parameter_mmax" : 10.0,
+							"parameter_unitstyle" : 1
 						}
 
 					}
@@ -1590,7 +1590,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 525.0, 77.0, 640.0, 480.0 ],
+						"rect" : [ 828.0, 264.0, 640.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1870,15 +1870,13 @@
 					"panelcolor" : [ 0.62115, 0.634453, 0.655658, 1.0 ],
 					"parameter_enable" : 1,
 					"patching_rect" : [ 177.5, 78.5, 44.0, 42.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 40.0, 35.5, 44.0, 42.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "Speed",
 							"parameter_shortname" : "Speed",
-							"parameter_type" : 1,
-							"parameter_mmax" : 30.0,
-							"parameter_unitstyle" : 0
+							"parameter_type" : 0,
+							"parameter_mmax" : 10.0,
+							"parameter_unitstyle" : 1
 						}
 
 					}
@@ -1956,15 +1954,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-10", 0 ]
 				}
 
 			}
@@ -2451,19 +2440,28 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
  ],
 		"parameters" : 		{
-			"obj-30" : [ "Speed[1]", "Speed", 0 ],
-			"obj-39" : [ "Amt[3]", "Amt", 0 ],
-			"obj-44" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-45" : [ "live.toggle[1]", "live.toggle", 0 ],
-			"obj-38" : [ "Speed[3]", "Speed", 0 ],
+			"obj-30" : [ "Speed[1]", "Speed", 0 ],
 			"obj-46" : [ "live.toggle[2]", "live.toggle", 0 ],
 			"obj-3" : [ "Speed", "Speed", 0 ],
+			"obj-44" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-39" : [ "Amt[3]", "Amt", 0 ],
+			"obj-38" : [ "Speed[3]", "Speed", 0 ],
 			"obj-35" : [ "Amt[2]", "Amt", 0 ],
+			"obj-32" : [ "Amt[1]", "Amt", 0 ],
 			"obj-9" : [ "Amt", "Amt", 0 ],
-			"obj-34" : [ "Speed[2]", "Speed", 0 ],
-			"obj-32" : [ "Amt[1]", "Amt", 0 ]
+			"obj-34" : [ "Speed[2]", "Speed", 0 ]
 		}
 ,
 		"dependency_cache" : [  ]
