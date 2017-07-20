@@ -5,7 +5,7 @@
 			"major" : 6,
 			"minor" : 1,
 			"revision" : 9,
-			"architecture" : "x86"
+			"architecture" : "x64"
 		}
 ,
 		"rect" : [ 0.0, 45.0, 945.0, 480.0 ],
@@ -100,7 +100,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 604.0, 152.0, 77.0, 17.0 ],
+					"patching_rect" : [ 604.0, 136.0, 77.0, 17.0 ],
 					"text" : "scale 0. 1. 0 127"
 				}
 
@@ -114,9 +114,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 572.0, 26.5, 77.0, 18.0 ],
+					"patching_rect" : [ 529.0, 187.5, 77.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 172.0, 43.5, 50.0, 18.0 ],
+					"presentation_rect" : [ 138.0, 43.5, 50.0, 18.0 ],
 					"text" : "Flicker",
 					"textjustification" : 1
 				}
@@ -135,9 +135,9 @@
 					"outlettype" : [ "", "float" ],
 					"panelcolor" : [ 0.62115, 0.634453, 0.655658, 1.0 ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 494.0, 110.0, 44.0, 42.0 ],
+					"patching_rect" : [ 494.0, 123.5, 44.0, 42.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 199.0, 1.5, 44.0, 42.0 ],
+					"presentation_rect" : [ 141.0, 1.5, 44.0, 42.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "Speed 0-127",
@@ -151,38 +151,6 @@
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"tribordercolor" : [ 0.209805, 0.250491, 0.310488, 1.0 ],
 					"varname" : "live.dial"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"activedialcolor" : [ 0.984314, 0.0, 0.168627, 1.0 ],
-					"annotation" : "",
-					"fontsize" : 8.0,
-					"hint" : "Amount 0.-127.",
-					"id" : "obj-10",
-					"maxclass" : "live.dial",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "float" ],
-					"panelcolor" : [ 0.62115, 0.634453, 0.655658, 1.0 ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 604.0, 178.0, 44.0, 42.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 162.0, 1.5, 44.0, 42.0 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_longname" : "Amount",
-							"parameter_shortname" : "Amount",
-							"parameter_type" : 1,
-							"parameter_unitstyle" : 0
-						}
-
-					}
-,
-					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"tribordercolor" : [ 0.209805, 0.250491, 0.310488, 1.0 ],
-					"varname" : "live.dial[1]"
 				}
 
 			}
@@ -304,7 +272,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 113.0, 58.5, 75.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ -3.75, 43.5, 51.5, 18.0 ],
+					"presentation_rect" : [ 83.25, 43.5, 51.5, 18.0 ],
 					"text" : "Flash",
 					"textjustification" : 1
 				}
@@ -325,7 +293,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 248.0, 52.5, 44.0, 42.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 1.5, 44.0, 42.0 ],
+					"presentation_rect" : [ 87.0, 1.5, 44.0, 42.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "Millis",
@@ -534,7 +502,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 827.0, 295.75, 236.0, 14.5 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 5.0, 62.5, 236.0, 24.5 ],
+					"presentation_rect" : [ 21.0, 61.5, 236.0, 24.5 ],
 					"segmented" : 1,
 					"tabs" : [ "Flash", "Flicker", "Free", "Null" ],
 					"varname" : "tab"
@@ -543,16 +511,6 @@
 			}
  ],
 		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-19", 1 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"midpoints" : [ 613.5, 268.75, 503.5, 268.75 ],
-					"source" : [ "obj-10", 0 ]
-				}
-
-			}
-, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"disabled" : 0,
@@ -574,9 +532,10 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
+					"destination" : [ "obj-19", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"midpoints" : [ 613.5, 220.25, 503.5, 220.25 ],
 					"source" : [ "obj-12", 0 ]
 				}
 
@@ -861,8 +820,7 @@
  ],
 		"parameters" : 		{
 			"obj-14" : [ "Speed 0-127", "Speed", 0 ],
-			"obj-6" : [ "Millis", "Millis", 0 ],
-			"obj-10" : [ "Amount", "Amount", 0 ]
+			"obj-6" : [ "Millis", "Millis", 0 ]
 		}
 ,
 		"dependency_cache" : [  ]

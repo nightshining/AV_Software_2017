@@ -206,7 +206,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 286.0, 41.0, 46.0, 24.0 ],
-					"restore" : [ 0.0 ],
+					"restore" : [ 5.0 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -227,7 +227,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 209.5, 41.0, 46.0, 24.0 ],
-					"restore" : [ 0.0 ],
+					"restore" : [ 0.708661 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -248,7 +248,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 163.5, 41.0, 47.0, 24.0 ],
-					"restore" : [ 0.007874 ],
+					"restore" : [ 1.062992 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -678,7 +678,7 @@
 							"parameter_longname" : "Speed[3]",
 							"parameter_shortname" : "Speed",
 							"parameter_type" : 0,
-							"parameter_mmax" : 10.0,
+							"parameter_mmax" : 5.0,
 							"parameter_unitstyle" : 1
 						}
 
@@ -711,7 +711,7 @@
 							"parameter_longname" : "Amt[3]",
 							"parameter_shortname" : "Amt",
 							"parameter_type" : 0,
-							"parameter_mmax" : 1.0,
+							"parameter_mmax" : 0.2,
 							"parameter_unitstyle" : 1
 						}
 
@@ -992,7 +992,7 @@
 							"parameter_longname" : "Speed[2]",
 							"parameter_shortname" : "Speed",
 							"parameter_type" : 0,
-							"parameter_mmax" : 10.0,
+							"parameter_mmax" : 5.0,
 							"parameter_unitstyle" : 1
 						}
 
@@ -1025,7 +1025,7 @@
 							"parameter_longname" : "Amt[2]",
 							"parameter_shortname" : "Amt",
 							"parameter_type" : 0,
-							"parameter_mmax" : 1.0,
+							"parameter_mmax" : 0.2,
 							"parameter_unitstyle" : 1
 						}
 
@@ -1306,7 +1306,7 @@
 							"parameter_longname" : "Speed[1]",
 							"parameter_shortname" : "Speed",
 							"parameter_type" : 0,
-							"parameter_mmax" : 10.0,
+							"parameter_mmax" : 5.0,
 							"parameter_unitstyle" : 1
 						}
 
@@ -1875,7 +1875,7 @@
 							"parameter_longname" : "Speed",
 							"parameter_shortname" : "Speed",
 							"parameter_type" : 0,
-							"parameter_mmax" : 10.0,
+							"parameter_mmax" : 5.0,
 							"parameter_unitstyle" : 1
 						}
 
@@ -1943,7 +1943,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 132.0, 392.0, 25.0, 25.0 ]
+					"patching_rect" : [ 223.0, 392.0, 25.0, 25.0 ]
 				}
 
 			}
@@ -2451,17 +2451,17 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-45" : [ "live.toggle[1]", "live.toggle", 0 ],
-			"obj-30" : [ "Speed[1]", "Speed", 0 ],
 			"obj-46" : [ "live.toggle[2]", "live.toggle", 0 ],
-			"obj-3" : [ "Speed", "Speed", 0 ],
-			"obj-44" : [ "live.toggle", "live.toggle", 0 ],
-			"obj-39" : [ "Amt[3]", "Amt", 0 ],
-			"obj-38" : [ "Speed[3]", "Speed", 0 ],
 			"obj-35" : [ "Amt[2]", "Amt", 0 ],
+			"obj-34" : [ "Speed[2]", "Speed", 0 ],
+			"obj-3" : [ "Speed", "Speed", 0 ],
 			"obj-32" : [ "Amt[1]", "Amt", 0 ],
+			"obj-30" : [ "Speed[1]", "Speed", 0 ],
 			"obj-9" : [ "Amt", "Amt", 0 ],
-			"obj-34" : [ "Speed[2]", "Speed", 0 ]
+			"obj-39" : [ "Amt[3]", "Amt", 0 ],
+			"obj-45" : [ "live.toggle[1]", "live.toggle", 0 ],
+			"obj-44" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-38" : [ "Speed[3]", "Speed", 0 ]
 		}
 ,
 		"dependency_cache" : [  ]
