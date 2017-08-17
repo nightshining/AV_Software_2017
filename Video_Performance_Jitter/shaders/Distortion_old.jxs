@@ -127,8 +127,7 @@ float largeFuzzOffset = snoise(vec2(time*1.0,uv.y*25.0))*yNoise;
     float vertMovementOn = (1.0-step(snoise(vec2(time*0.2,8.0)),0.4))*vertMovementOpt;
     float vertJerk = (1.0-step(snoise(vec2(time*1.5,5.0)),0.6))*vertJerkOpt;
     float vertJerk2 = (1.0-step(snoise(vec2(time*5.5,5.0)),0.2))*vertJerkOpt;
-    //float yOffset = abs(sin(time)*4.0)*vertMovementOn+vertJerk*vertJerk2*0.3;
-    float yOffset = 0.0;
+    float yOffset = abs(sin(time)*4.0)*vertMovementOn+vertJerk*vertJerk2*0.3;
     float y = mod(uv.y+yOffset,1.0);
     
 	
